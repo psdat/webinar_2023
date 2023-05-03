@@ -1,0 +1,37 @@
+version: 2
+
+sources:
+- name: hubspot
+  description: Hubspot data holding Biztory customer data
+  database: biztory_source
+  schema: hubspot
+  tables:
+  - name: company
+    identifier: company
+    description: List of customers for Biztory
+  - name: deal
+    description: List of deals in place
+  - name: deal_company
+    identifier: deal_company
+    description: Linking tables between deals and companies
+  - name: line_item
+    identifier: line_item
+    description: Breakdown of what is in the deal
+  - name: owner
+    identifier: owner
+    description: Who is the owner of the COMPANY
+  - name: deal_pipeline_stage
+    identifier: deal_pipeline_stage
+    description: what stage the deal is in and what pipeline
+  - name: contact
+    identifier: contact
+    description: who you can message from the company
+  - name: product
+    identifier: product
+    description: what can be sold
+  - name: deal_contact
+    identifier: deal_contact
+    description: contact linked to the deal
+  - name: deal_pipeline
+    identifier: deal_pipeline
+    description: what pipeline that deal has come from

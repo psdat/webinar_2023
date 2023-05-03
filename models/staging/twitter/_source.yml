@@ -1,0 +1,36 @@
+version: 2
+
+sources:
+- name: twitter
+  description: social media platform to engage and attract new COMPANYs   
+  database: biztory_source
+  schema: twitter
+  tables:
+  - name: account_history
+    identifier: account_history
+    description: organises conversations into dedicated spaces
+  - name: media_library
+    identifier: media_lib
+    description: images and videos used
+  - name: tweet
+    identifier: tweet
+    description: the message sent out
+  - name: tweet_hashtag
+    identifier: tweet_hashtag
+    description: hashtags used with tweet
+  - name: tweet_media
+    identifier: tweet_media
+    description: images and videos used with tweet
+  - name: tweet_url
+    identifier: tweet_url
+    description: the link to the tweet
+  - name: tweet_user_mention
+    identifier: tweet_user_mention
+    description: whos been mentioned in the tweet
+  - name: twitter_user_history
+    identifier: twitter_user_history
+    description: all the past information about tweets
+  - name: organic_tweet_report
+    identifier: organic_tweet_report
+    description: information about the tweet
+    

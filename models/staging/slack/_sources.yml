@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+- name: slack
+  description: Platform to manage consultants interaction with biztory updates 
+  database: biztory_source
+  schema: slack
+  tables:
+  - name: channels
+    identifier: channels
+    description: organises conversations into dedicated spaces
+  - name: messages
+    identifier: messages
+    description: convo via slack sent by biztory employees
+  - name: users
+    identifier: users
+    description: List of team members

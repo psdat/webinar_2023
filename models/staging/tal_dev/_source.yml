@@ -1,0 +1,26 @@
+version: 2
+
+sources:
+- name: talent_development
+  description: platform  to manage consultants development in knowledge and certs
+  database: biztory_source
+  schema: talent_development
+  tables:
+  - name: content
+    identifier: content
+    description: the information/knowledge to complete the level
+  - name: measurements
+    identifier: measurements
+    description: the action to complete the level
+  - name: measurements_completion
+    identifier: measurements_completion
+    description: recording of completions of levels
+  - name: content_completion_form_responses
+    identifier: content_completion_form_responses
+    description: content completed by biztorians and their response to the content
+  - name: tracks
+    identifier: tracks
+    description: the different paths consultants can take
+  - name: participant_metadata
+    identifier: participant_metadata
+    description: info about the certs gained

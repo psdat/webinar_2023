@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+- name: smartsheet
+  description: Platform to manage consultants to projects they're on
+  database: biztory_source
+  schema: smartsheet
+  tables:
+  - name: ops_resource_request_form
+    identifier: operations_resource_request_form
+    description: What projects have been assigned

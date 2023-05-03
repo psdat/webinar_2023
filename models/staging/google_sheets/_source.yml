@@ -1,0 +1,38 @@
+version: 2
+
+sources:
+- name: google_sheets
+  description: Data entered on Google Sheets
+  database: biztory_source
+  schema: google_sheets
+  tables:
+  - name: biztory_team
+    identifier: biztory_team
+    description: List of employees at Biztory
+  - name: biz_certs
+    identifier: biztory_certifications
+    description: All the certifications we can get
+  - name: biz_client_access_req_log
+    identifier: biztory_client_access_request_log
+    description: people who have tried to access the client info
+  - name: languages_per_team_member
+    identifier: languages_per_team_member
+    description: planning of biztory client, internal days etc.
+  - name: skills_matrix_services
+    identifier: skills_matrix_services
+    description: Data for each Consultants Skills
+  - name: platform_costs
+    identifier: platform_costs
+    description: people who have tried to access the client info
+  - name: user_platform_cost_overview 
+    identifier: user_platform_cost_overview 
+    description: planning of biztory client, internal days etc.
+  - name: biztory_planning 
+    identifier: biztory_planning 
+    description: planning of biztory client, internal days etc.
+  - name: biztory_projects_legacy 
+    identifier: biztory_projects_legacy 
+    description: planning of biztory client, internal days etc.
+  - name: biztory_projects_internal
+    identifier: biztory_projects_internal 
+    description: planning of biztory client, internal days etc.

@@ -1,0 +1,76 @@
+name: biztory_datavault
+profile: 'biztory_datavault'
+
+version: '5.0.0'
+config-version: 2
+
+analysis-paths:
+  - analysis
+clean-targets:
+  - target
+seed-paths:
+  - seeds
+macro-paths:
+  - macros
+model-paths:
+  - models
+test-paths:
+  - tests
+target-path: target
+
+vars:
+  hash: MD5
+  full_refresh_force: false
+  database_suffix: |
+    {%- if  target.name == 'uat' -%} _uat
+    {%- endif -%}
+  schema_prefix: |
+    {%- if  target.name == 'dev' -%} {{ target.schema ~ '_' }}
+    {%- endif -%}
+  meta_vault_delta_table_name: DBT_RUN_DELTAS
+  meta_vault_delta_table_max_ldts_field_name: MAX_FIVETRAN_SYNCED
+  meta_vault_delta_table_source_field_name: VIEW_NAME
+
+on-run-start: "{{ create_metavault_table() }}"
+on-run-end: "{{ update_dbt_run_deltas() }}"
+
+dispatch:
+  - macro_namespace: dbtvault
+    search_order: ['biztory_datavault','dbtvault']
+
+models:
+  biztory_datavault:
+    staging:
+      materialized: view
+      +schema: staging
+      tags:
+        - 'staging'
+        - 'stg'
+    meta_vault:
+      materialized: incremental
+      +schema: dbt
+      +on-schema-change: "{%- if flags.FULL_REFRESH and var('full_refresh_force') -%}sync_all_columns{% else %}fail{% endif %}"
+      +full_refresh: "{{ true if flags.FULL_REFRESH and var('full_refresh_force') else false }}"
+      tags:
+        - 'meta_vault'
+        - 'mv'
+    raw_vault:
+      materialized: incremental
+      +schema: raw_vault
+      +on-schema-change: "{%- if flags.FULL_REFRESH and var('full_refresh_force') -%}sync_all_columns{% else %}fail{% endif %}"
+      +full_refresh: "{{ true if flags.FULL_REFRESH and var('full_refresh_force') else false }}"
+      tags:
+        - 'raw_vault'
+        - 'rv'
+    business_vault:
+      materialised: view
+      +schema: business_vault
+      tags:
+        - 'business_vault'
+        - 'bv'
+    information_vault:
+      materialised: view
+      +schema: information_vault
+      tags:
+        - 'information_vault'
+        - 'iv'

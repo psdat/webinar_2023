@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+- name: resource_manager
+  description: Platform to manage consultants to projects they're on
+  database: biztory_source
+  schema: resource_manager
+  tables:
+  - name: assignments
+    identifier: assignments
+    description: What assignments are to be allocated
+  - name: projects_phases
+    identifier: projects_phases
+    description: Breakdown of different phases of assignments
+  - name: users
+    identifier: users
+    description: List of team members
