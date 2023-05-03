@@ -3,8 +3,8 @@ version: 2
 sources:
 - name: hubspot
   description: Hubspot data holding Biztory customer data
-  database: biztory_demo
-  schema: datajam_2022
+  database: webinar_demo
+  schema: source
   tables:
   - name: hubspot_company
     description: List of customers for Biztory

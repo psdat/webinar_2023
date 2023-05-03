@@ -3,8 +3,8 @@ version: 2
 sources:
 - name: smartsheet
   description: Platform to manage consultants to projects they're on
-  database: biztory_demo
-  schema: datajam_2022
+  database: webinar_demo
+  schema: source
   tables:
   - name: smartsheet_request_form_responses
     description: What projects have been assigned

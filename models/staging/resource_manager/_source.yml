@@ -3,8 +3,8 @@ version: 2
 sources:
 - name: resource_manager
   description: Platform to manage consultants to projects they're on
-  database: biztory_demo
-  schema: datajam_2022
+  database: webinar_demo
+  schema: source
   tables:
   - name: resource_manager_assignments
     description: What assignments are to be allocated
